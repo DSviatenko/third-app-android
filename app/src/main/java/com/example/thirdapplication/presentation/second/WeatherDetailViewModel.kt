@@ -23,8 +23,8 @@ class WeatherDetailViewModel : ViewModel(){
         viewModelScope.launch {
             isLoading.postValue(true)
 
-            val data = weatherUsecase.getWeather()
-            tomorrowWeather.postValue(data?.forecast?.get(1))
+            val data = weatherUsecase.getWeatherForNextDay()
+            tomorrowWeather.postValue(data)
 
             isLoading.postValue(false)
         }
